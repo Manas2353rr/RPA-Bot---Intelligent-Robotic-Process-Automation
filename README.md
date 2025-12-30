@@ -144,23 +144,6 @@ OpenAI 2/
 └── README.md              # This file
 ```
 
-## ⚙️ Configuration
-
-Configuration is managed through `config.py`. Default settings:
-
-```python
-{
-    "llm_model": "codellama",           # Ollama model name
-    "ollama_url": "http://127.0.0.1:11434/",
-    "speech_enabled": True,
-    "auto_execute": False,
-    "screenshot_path": "./screenshots/",
-    "log_level": "INFO"
-}
-```
-
-To modify settings, edit `config.py` or create `rpa_config.json` in the project root.
-
 ## 🔧 How It Works
 
 ### Task Processing Flow
