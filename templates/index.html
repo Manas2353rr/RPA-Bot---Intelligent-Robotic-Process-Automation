@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPA Bot - Intelligent Automation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                    <h1>RPA Bot</h1>
+                </div>
+                <div class="status-indicators">
+                    <div class="status-item" id="ollama-status">
+                        <i class="fas fa-circle"></i>
+                        <span>Ollama</span>
+                    </div>
+                    <div class="status-item" id="selenium-status">
+                        <i class="fas fa-circle"></i>
+                        <span>Web Automation</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-keyboard"></i>
+                        What would you like me to do?
+                    </h2>
+                </div>
+                
+                <div class="input-container">
+                    <textarea 
+                        id="task-input" 
+                        placeholder="Type your task here... e.g., 'Play song Despacito on YouTube' or 'Open calculator'"
+                        rows="3"
+                    ></textarea>
+                    
+                    <div class="input-actions">
+                        <button class="btn btn-secondary" id="speech-btn" title="Use voice input">
+                            <i class="fas fa-microphone"></i>
+                            <span>Voice Input</span>
+                        </button>
+                        <button class="btn btn-primary" id="generate-btn">
+                            <i class="fas fa-magic"></i>
+                            <span>Generate Instructions</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Examples -->
+                <div class="examples-section">
+                    <h3>
+                        <i class="fas fa-lightbulb"></i>
+                        Example Tasks
+                    </h3>
+                    <div class="examples-grid" id="examples-grid">
+                        <!-- Examples will be loaded here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Instructions Section -->
+            <section class="instructions-section" id="instructions-section" style="display: none;">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-list-check"></i>
+                        Generated Instructions
+                    </h2>
+                    <span class="instruction-count" id="instruction-count">0 steps</span>
+                </div>
+                
+                <div class="instructions-list" id="instructions-list">
+                    <!-- Instructions will be displayed here -->
+                </div>
+
+                <div class="execution-actions">
+                    <button class="btn btn-secondary" id="cancel-btn">
+                        <i class="fas fa-times"></i>
+                        <span>Cancel</span>
+                    </button>
+                    <button class="btn btn-success" id="execute-btn">
+                        <i class="fas fa-play"></i>
+                        <span>Execute Task</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Execution Logs Section -->
+            <section class="logs-section" id="logs-section" style="display: none;">
+                <div class="section-header">
+                    <h2>
+                        <i class="fas fa-terminal"></i>
+                        Execution Logs
+                    </h2>
+                    <div class="execution-status" id="execution-status">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <span>Running...</span>
+                    </div>
+                </div>
+                
+                <div class="logs-container" id="logs-container">
+                    <!-- Logs will be displayed here -->
+                </div>
+
+                <div class="execution-actions">
+                    <button class="btn btn-secondary" id="close-browser-btn" style="display: none;">
+                        <i class="fas fa-window-close"></i>
+                        <span>Close Browser</span>
+                    </button>
+                    <button class="btn btn-secondary" id="close-logs-btn">
+                        <i class="fas fa-check"></i>
+                        <span>Done</span>
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                <i class="fas fa-info-circle"></i>
+                Powered by Local LLM (Ollama) | Desktop & Web Automation
+            </p>
+        </footer>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-robot fa-3x"></i>
+            <p>Processing your request...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
