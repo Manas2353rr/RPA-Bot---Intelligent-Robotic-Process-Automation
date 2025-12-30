@@ -209,42 +209,6 @@ Play song Despacito and play song Shape of You on YouTube
 Search for Python tutorial and search for JavaScript tutorial on YouTube
 ```
 
-## 🐛 Troubleshooting
-
-### Ollama Connection Issues
-**Problem**: "Ollama not running"
-**Solution**: 
-1. Start Ollama: `ollama serve`
-2. Verify connection: `curl http://localhost:11434/api/tags`
-3. Pull model: `ollama pull llama2`
-
-### Chrome Driver Issues
-**Problem**: "Selenium not available" or Chrome driver errors
-**Solution**:
-1. Ensure Google Chrome is installed
-2. `webdriver-manager` should auto-download ChromeDriver
-3. If issues persist, manually download ChromeDriver matching your Chrome version
-
-### Speech Recognition Issues
-**Problem**: "Speech recognition not available"
-**Solution**:
-1. Install PyAudio: `pip install pyaudio`
-2. On Windows, may need: `pip install pipwin` then `pipwin install pyaudio`
-3. Check microphone permissions in system settings
-
-### Import Errors
-**Problem**: ModuleNotFoundError
-**Solution**:
-```bash
-pip install -r requirements_web.txt
-```
-
-### Port Already in Use
-**Problem**: "Address already in use" when starting web interface
-**Solution**:
-1. Change port in `app.py`: `app.run(port=5001)`
-2. Or kill process using port 5000
-
 ## 🔒 Security Notes
 
 - The bot has access to your desktop and can perform actions automatically
